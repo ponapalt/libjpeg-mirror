@@ -13,14 +13,16 @@
 
 # You may want to adjust these compiler options:
 CFLAGS= $(cflags) $(cdebug) $(cvars) -I.
+CFLAGS  = -c -DWINVER=0x410 -D_WIN32_IE=0x400 -D_WIN32_WINNT=0x400 -D_UNICODE -DUNICODE -D_WINDOWS -DNDEBUG -DWIN32 -DSTRICT -nologo /MT /W3 /O2 /Oy- /YX /FD /GA /Zl -I..\zlib
 # Generally, we recommend defining any configuration symbols in jconfig.h,
 # NOT via -D switches here.
 
 # Link-time options:
 LDFLAGS= $(ldebug) $(conlflags)
+LDFLAGS = -nologo
 
 # To link any special libraries, add the necessary commands here.
-LDLIBS= $(conlibs)
+LDLIBS= $(conlibs) libcmt.lib
 
 # Put here the object file name for the correct system-dependent memory
 # manager file.  For NT we suggest jmemnobs.obj, which expects the OS to
